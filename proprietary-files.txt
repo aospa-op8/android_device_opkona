@@ -629,7 +629,9 @@ vendor/lib64/vendor.qti.hardware.embmssl@1.1-adapter-helper.so
 vendor/lib64/vendor.qti.hardware.embmssl@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so
 
-# Display calibration data - OOS
+# Display - OOS
+vendor/bin/hw/vendor.oneplus.hardware.display@1.0-service
+vendor/etc/init/vendor.oneplus.hardware.display@1.0-service.rc
 vendor/etc/qdcm_calib_data_19795_samsung_AMS678UW01_dsc_cmd_mode_panel.xml|a16503f41e6b5308efd012a2966e7ee7161d1b4b
 vendor/etc/qdcm_calib_data_Sharp_2k_cmd_mode_qsync_dsi_panel.xml|11d8798a7fd52cb5df625cffddb579c521ee00d3
 vendor/etc/qdcm_calib_data_Sharp_2k_video_mode_qsync_dsi_panel.xml|11d8798a7fd52cb5df625cffddb579c521ee00d3
