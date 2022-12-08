@@ -1098,6 +1098,10 @@ odm/vendor/firmware/iris5.fw|e407108896c8617f03b44ad95ad7b2b8a17aa417
 odm/vendor/firmware/iris5_ccf1.fw|3df30aeb4a2f4590987abc15605b27b95724bbff
 odm/vendor/firmware/iris5_ccf2.fw|f656f6229ef53d8cc31d67fc1ac0fc0b106b8abf
 
+# IRQ balance - OOS
+vendor/bin/msm_irqbalance
+vendor/etc/msm_irqbalance.conf
+
 # MDM
 vendor/bin/init.mdm.sh
 vendor/bin/ks
