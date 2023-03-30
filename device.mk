@@ -5,6 +5,8 @@
 #
 
 # A/B
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -39,7 +41,11 @@ PRODUCT_PACKAGES += \
     audio_amplifier.kona
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_io_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_io_policy.conf
+    $(LOCAL_PATH)/audio/audio_io_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_io_policy.conf \
+    $(LOCAL_PATH)/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
+    $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/etc/sound_trigger_mixer_paths.xml \
+    $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_ODM)/etc/sound_trigger_platform_info.xml
 
 # Authsecret
 PRODUCT_PACKAGES += \
@@ -64,6 +70,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
+
+# Crypto
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.crypto.dm_default_key.options_format.version=2 \
+    ro.crypto.volume.metadata.method=dm-default-key
 
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
@@ -119,7 +130,9 @@ PRODUCT_PACKAGES += \
     init.oplus.rc \
     init.oplus.sh \
     init.target.rc \
-    ueventd.oplus.rc
+    ueventd.oplus.rc \
+    fstab.qcom \
+    fstab.qcom.ramdisk
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -144,7 +157,10 @@ PRODUCT_PACKAGES += \
     OPlusCarrierConfigResCommon \
     OPlusFrameworksResCommon \
     OPlusSettingsResCommon \
-    OPlusSystemUIResCommon
+    OPlusSystemUIResCommon \
+    OPlusFrameworksResTarget \
+    OPlusSettingsProviderResTarget \
+    OPlusSystemUIResTarget
 
 # Oplus-fwk
 PRODUCT_PACKAGES += \
@@ -207,6 +223,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
+
+# Shipping API
+PRODUCT_SHIPPING_API_LEVEL := 30
 
 # Vendor service manager
 PRODUCT_PACKAGES += \

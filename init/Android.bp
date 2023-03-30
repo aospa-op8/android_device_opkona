@@ -11,6 +11,13 @@ cc_library_static {
 }
 
 prebuilt_etc {
+    name: "fstab.qcom",
+    src: "fstab.qcom",
+    vendor: true,
+    ramdisk_available: true,
+}
+
+prebuilt_etc {
     name: "init.oplus.hw.rc",
     src: "init.oplus.hw.rc",
     sub_dir: "init",
