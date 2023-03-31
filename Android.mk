@@ -6,7 +6,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter oneplus8 oneplus8pro oneplus8t oneplus9r,$(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
@@ -75,4 +74,3 @@ $(WIFI_FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /mnt/vendor/persist/qca6390/wlan_mac.bin $@/wlan_mac.bin
 
 ALL_DEFAULT_INSTALLED_MODULES +=  $(ACDBDATA_SYMLINKS) $(RFS_MDM_ADSP_SYMLINKS) $(RFS_MDM_CDSP_SYMLINKS) $(RFS_MDM_MPSS_SYMLINKS) $(RFS_MDM_SLPI_SYMLINKS) $(WIFI_FIRMWARE_SYMLINKS)
-endif

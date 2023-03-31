@@ -232,4 +232,4 @@ PRODUCT_PACKAGES += \
 PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true
 
 # Inherit from the proprietary files makefile.
-$(call inherit-product, vendor/oneplus/sm8250-common/sm8250-common-vendor.mk)
+$(call inherit-product, vendor/oneplus/opkona/opkona-vendor.mk)

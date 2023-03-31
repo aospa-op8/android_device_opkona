@@ -9,7 +9,7 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 
-COMMON_PATH := device/oneplus/sm8250-common
+COMMON_PATH := device/oneplus/opkona
 
 # A/B
 AB_OTA_UPDATER := true
@@ -148,4 +148,4 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # Include the proprietary files BoardConfig.
-include vendor/oneplus/sm8250-common/BoardConfigVendor.mk
+include vendor/oneplus/opkona/BoardConfigVendor.mk
