@@ -65,9 +65,6 @@ ro.incremental.enable=yes
 # Multi-gen LRU
 persist.device_config.mglru_native.lru_gen_config=all
 
-# Netflix
-ro.netflix.bsp_rev=Q8250-19134-1
-
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1
 

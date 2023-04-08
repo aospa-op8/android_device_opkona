@@ -8,8 +8,7 @@ BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
-
-COMMON_PATH := device/oneplus/opkona
+DEVICE_PATH := device/oneplus/opkona
 
 # A/B
 AB_OTA_UPDATER := true
@@ -25,9 +24,6 @@ AB_OTA_PARTITIONS += \
     vbmeta \
     vbmeta_system \
     vendor
-
-# ANT+
-BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
 # Architecture
 TARGET_ARCH := arm64
@@ -51,22 +47,22 @@ TARGET_BOOTLOADER_BOARD_NAME := kona
 TARGET_SCREEN_DENSITY := 450
 
 # Properties
-TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
-TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
-TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
-TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
-TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
+TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Fingerprint
 TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/oplus:libudfps_extension.oplus
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    $(COMMON_PATH)/device_framework_matrix.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
+    $(DEVICE_PATH)/device_framework_matrix.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_oplus
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_oplus
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
@@ -89,10 +85,6 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_RAMDISK_USE_LZ4 := true
 KERNEL_DEFCONFIG := vendor/kona-perf_defconfig
-
-# Platform
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := kona
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
@@ -122,7 +114,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 PRODUCT_FS_COMPRESSION := 1
 
 # Power
-TARGET_POWER_FEATURE_EXT_LIB := //$(COMMON_PATH):libpowerfeature_ext_oplus
+TARGET_POWER_FEATURE_EXT_LIB := //$(DEVICE_PATH):libpowerfeature_ext_oplus
 
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
@@ -131,11 +123,11 @@ TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# RIL
-ENABLE_VENDOR_RIL_SERVICE := true
-
 # SEPolicy
 include hardware/oplus/sepolicy/qti/SEPolicy.mk
+
+BOARD_VENDOR_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy/vendor
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

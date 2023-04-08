@@ -128,6 +128,7 @@ PRODUCT_PACKAGES += \
     init.oplus.hw.rc.recovery \
     init.oplus.rc \
     init.oplus.sh \
+    init.overlayfs.rc \
     init.target.rc \
     ueventd.oplus.rc \
     fstab.qcom \
@@ -176,7 +177,6 @@ PRODUCT_PACKAGES += \
 
 # QTI
 TARGET_BOARD_PLATFORM := kona
-
 TARGET_COMMON_QTI_COMPONENTS := all
 
 # Sensors
