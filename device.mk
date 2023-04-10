@@ -153,14 +153,22 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    FrameworksResTarget \
-    OPlusCarrierConfigResCommon \
-    OPlusFrameworksResCommon \
-    OPlusSettingsResCommon \
-    OPlusSystemUIResCommon \
-    OPlusFrameworksResTarget \
-    OPlusSettingsProviderResTarget \
-    OPlusSystemUIResTarget
+    OPlusCarrierConfig \
+    OPlusFrameworks \
+    OPlusSettings \
+    OPlusSystemUI \
+    OPlusFrameworksLemonades \
+    OPlusSettingsProviderLemonades \
+    OPlusSystemUILemonades \
+    OPlusFrameworksInstantnoodle \
+    OPlusSettingsProviderInstantnoodle \
+    OPlusSystemUIInstantnoodle \
+    OPlusFrameworksInstantnoodlep \
+    OPlusSettingsProviderInstantnoodlep \
+    OPlusSystemUIInstantnoodlep \
+    OPlusFrameworksKebab \
+    OPlusSettingsProviderKebab \
+    OPlusSystemUIKebab \
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
