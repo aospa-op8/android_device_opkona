@@ -47,9 +47,21 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_ODM)/etc/sound_trigger_platform_info.xml
 
+PRODUCT_ODM_PROPERTIES += \
+    ro.config.vc_call_vol_steps=9 \
+    ro.vendor.audio.sdk.fluencetype=fluence
+
+PRODUCT_SYSTEM_EXT_PROPERTIES += persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
+
 # Authsecret
 PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0.vendor
+
+# Bluetooth
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    persist.bluetooth.bqr.choppy_threshold=9,6 \
+    persist.bluetooth.bqr.event_mask=0x8000000E \
+    persist.bluetooth.bqr.min_interval_ms=60000
 
 # Boot control
 PRODUCT_PACKAGES += \
@@ -82,6 +94,13 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
 
+# Display
+PRODUCT_ODM_PROPERTIES += \
+    persist.sys.sf.color_mode=0 \
+    vendor.display.enable_async_powermode=0
+
+PRODUCT_SYSTEM_EXT_PROPERTIES += ro.sf.use_latest_hwc_vsync_period=0
+
 # Dolby
 $(call inherit-product, hardware/dolby/dolby.mk)
 
@@ -110,6 +129,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
+# GMS
+PRODUCT_PROPERTY_OVERRIDES += ro.opa.device_model_id=ga-oplus-skill-os121-211011
+
 # GPS
 LOC_HIDL_VERSION = 4.0
 
@@ -121,6 +143,12 @@ PRODUCT_PACKAGES += \
 # Hotword enrollment
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
+
+# IFFA
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    persist.sys.fod.pos.x=453 \
+    persist.sys.fod.pos.y=1823 \
+    persist.sys.fod.size=174
 
 # Init
 PRODUCT_PACKAGES += \
@@ -142,6 +170,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_kona_vendor.xml \
     $(LOCAL_PATH)/configs/media_codecs_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_kona.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.thumbnail.prefer_hw_codecs=true \
+    ro.media.recorder-max-base-layer-fps=60
 
 # Net
 PRODUCT_PACKAGES += \
@@ -206,6 +238,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.sensors.enable.mag_filter=true \
+    ro.sensor.pickup=android.sensor.tilt_detector \
+    ro.sensor.pickup.value=0
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
