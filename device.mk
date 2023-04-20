@@ -166,6 +166,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
+# Manifests
+DEVICE_MANIFEST_FILE += \
+    $(LOCAL_PATH)/manifest.xml \
+    $(LOCAL_PATH)/manifest_oplus.xml
+
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(LOCAL_PATH)/device_framework_matrix.xml
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_kona_vendor.xml \
