@@ -105,6 +105,8 @@ PRODUCT_ODM_PROPERTIES += \
 
 PRODUCT_SYSTEM_EXT_PROPERTIES += ro.sf.use_latest_hwc_vsync_period=0
 
+TARGET_DISABLE_MEMTRACK := true
+
 # Doze
 PRODUCT_PACKAGES += \
     ParanoidDoze
