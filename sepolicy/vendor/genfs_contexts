@@ -4,3 +4,6 @@ genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm               u:object_r:vendor_sysfs_graphics:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/notify_dim        u:object_r:vendor_sysfs_graphics:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/notify_fppress    u:object_r:vendor_sysfs_graphics:s0
+
+# Fingerprint
+genfscon sysfs /devices/platform/soc/soc:goodix_fp/udfps_pressed u:object_r:vendor_sysfs_sensors:s0
