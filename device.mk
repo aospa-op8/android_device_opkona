@@ -129,10 +129,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
-# Gatekeeper
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0.vendor
-
 # GMS
 PRODUCT_PROPERTY_OVERRIDES += ro.opa.device_model_id=ga-oplus-skill-os121-211011
 
@@ -165,10 +161,6 @@ PRODUCT_PACKAGES += \
     ueventd.oplus.rc \
     fstab.qcom \
     fstab.qcom.ramdisk
-
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.1.vendor
 
 # Manifests
 DEVICE_MANIFEST_FILE += \
@@ -228,7 +220,9 @@ PRODUCT_PACKAGES += \
 
 # QTI
 TARGET_BOARD_PLATFORM := kona
-TARGET_COMMON_QTI_COMPONENTS := all
+TARGET_COMMON_QTI_COMPONENTS := \
+    all \
+    keymaster
 
 # Sensors
 PRODUCT_PACKAGES += \

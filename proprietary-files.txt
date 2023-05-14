@@ -864,11 +864,6 @@ odm/vendor/firmware/gfp9638.b06:odm/19811/vendor/firmware/gfp9638.b06|388d940358
 odm/vendor/firmware/gfp9638.b07:odm/19811/vendor/firmware/gfp9638.b07|45e24df3a6e7f2e3ad0e49c184ad2dd1f423f17c
 odm/vendor/firmware/gfp9638.mdt:odm/19811/vendor/firmware/gfp9638.mdt|9896839036b5ac6ce77d6a51664f3a4416707db1
 
-# Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
-
 # Graphics (Adreno firmware) - OOS
 vendor/firmware/a650_gmu.bin|c744acb10afb7c980d333c5b6521e2a18993ff14
 vendor/firmware/a650_sqe.fw|130a0df5c562e69ab717867ebc0b7abf6f3bcb3f
@@ -1141,14 +1136,6 @@ odm/etc/irissoft.fw:odm/19811/etc/irissoft.fw|a973047dc12e24bc555e6100b54364644b
 odm/vendor/firmware/iris5.fw|e407108896c8617f03b44ad95ad7b2b8a17aa417
 odm/vendor/firmware/iris5_ccf1.fw|3df30aeb4a2f4590987abc15605b27b95724bbff
 odm/vendor/firmware/iris5_ccf2.fw|f656f6229ef53d8cc31d67fc1ac0fc0b106b8abf
-
-# Keymaster
-vendor/bin/hw/android.hardware.keymaster@4.1-service-qti
-vendor/etc/init/android.hardware.keymaster@4.1-service-qti.rc
-vendor/lib64/libkeymasterdeviceutils.so
-vendor/lib64/libkeymasterprovision.so
-vendor/lib64/libkeymasterutils.so
-vendor/lib64/libqtikeymaster4.so
 
 # MDM
 vendor/bin/init.mdm.sh
@@ -1580,7 +1567,6 @@ vendor/etc/ssg/ta_config.json
 vendor/etc/ssg/tz_whitelist.json
 vendor/lib64/libminkdescriptor.so
 vendor/lib64/libnative-api.so
-vendor/lib64/libqcbor.so
 
 # Soter - OOS
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service|8e315a85eeeb94a51f1533c80212d2fc0ec88760
