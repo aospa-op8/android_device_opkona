@@ -32,34 +32,9 @@ odm/etc/acdbdata/Hdmi_cal.acdb:odm/19811/etc/acdbdata/Hdmi_cal.acdb|482d92ae5086
 odm/etc/acdbdata/Headset_cal.acdb:odm/19811/etc/acdbdata/Headset_cal.acdb|dc756250007066e2537f3629aec45543ffdfaeb7
 odm/etc/acdbdata/Speaker_cal.acdb:odm/19811/etc/acdbdata/Speaker_cal.acdb|164ae3e124174628b2e5ba429a96e5da26b60b2d
 
-# ADSPRPC - OOS
-vendor/etc/init/vendor.qti.adsprpc-service.rc|20cb0e4f182f64c51c214104487ae4836f04b86e
-
 # ADSPRPC
-vendor/bin/adsprpcd
-vendor/bin/cdsprpcd
-vendor/bin/dspservice
 vendor/bin/loadalgo
-vendor/etc/init/vendor.qti.cdsprpc-service.rc
-vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
-vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
-vendor/lib/libadsprpc.so
-vendor/lib/libadsp_default_listener.so
-vendor/lib/libcdsprpc.so
-vendor/lib/libcdsp_default_listener.so
-vendor/lib/libmdsprpc.so
-vendor/lib/libsdsprpc.so
-vendor/lib/libsysmon_cdsp_skel.so
-vendor/lib/vendor.qti.hardware.dsp@1.0.so
-vendor/lib64/libadsprpc.so
-vendor/lib64/libadsp_default_listener.so
-vendor/lib64/libcdsprpc.so
-vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libloadalgo_stub.so
-vendor/lib64/libmdsprpc.so
-vendor/lib64/libsdsprpc.so
-vendor/lib64/libsysmon_cdsp_skel.so
-vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 
 # ADSP modules - OOS
 odm/lib/rfsa/adsp/hta_lib/libhta_dsp_skel.so|a32690a219a7449046e7318165a4dea88bb4324c
@@ -492,11 +467,6 @@ odm/lib64/camera/com.qti_instantnoodlep.sensor.s5k3m5.so:odm/19811/lib64/camera/
 # Camera firmware - OOS
 vendor/firmware/CAMERA_ICP.elf|9a060a175570cd9c7d4b9d7c0605aa212e937b68
 
-# Charger - OOS
-vendor/bin/init.qti.chg_policy.sh|9a96b05abdfe149eb8a7e20a791284e84b5fffe0
-vendor/etc/charger_fstab.qti|8464c139d93f05e86ff9c9d31b3e8617b8d9476e
-vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc|1d9997d6fae68905d9202760154b622bceae3700
-
 # Charger firmware - OOS
 odm/firmware/fastchg/19063/oplus_vooc_fw.bin|a4cc63086f1ffd4385e8ff03d37497bc3c4d8119
 odm/firmware/fastchg/19065/oplus_vooc_fw.bin|a4cc63086f1ffd4385e8ff03d37497bc3c4d8119
@@ -766,10 +736,6 @@ vendor/lib/rfsa/adsp/libapps_mem_heap.so
 vendor/lib/rfsa/adsp/libdspCV_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp.so
 vendor/lib/rfsa/adsp/libfastcvdsp_skel.so
-vendor/lib/libfastcvdsp_stub.so
--vendor/lib/libfastcvopt.so
-vendor/lib64/libfastcvdsp_stub.so
--vendor/lib64/libfastcvopt.so
 
 # Feature enabler client - OOS
 vendor/bin/feature_enabler_client|0e25e593af2f9f3520d28980ad60a67a5cc5385e
@@ -1387,12 +1353,7 @@ odm/etc/init/vendor.oplus.hardware.oplusSensor@1.0-service.rc|0a7d6f9b049c53f2d1
 odm/lib64/liboplus_service.so|feb8934ea602cea167196ce75a7c4fc97c0eb98c
 odm/lib64/vendor.oplus.hardware.oplusSensor@1.0.so|daf5a868f2c2680ad74790023cf94f80a158517a
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service|79e6f3a28671bdc8b13b329a829fb64d7b0deb79
-vendor/bin/sensors.qti|05be9fddb8fb4fcce053696b8e9cf68aea751747
-vendor/bin/sscrpcd|787c4dfcf9f05d63ce3be912963a6fe10b936b7b
-vendor/etc/init/init.vendor.sensors.rc|45d1cd3dc3551a5723474366ba37476a8e6c01ef
 vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc|449c88778d880c0d47cc4d651fc60c4c424c1a3f
-vendor/etc/init/vendor.sensors.qti.rc|f34fc966af816b50f10ae7520b33863961a14478
-vendor/etc/init/vendor.sensors.sscrpcd.rc|df52901f1ad0fbc97d6070e28896a6be40154814
 vendor/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml|1da4413d851427006472e4251cd20d397052d41f
 vendor/etc/sensors/config/alsps.json|1e31fd328c18098f6059b08841d382e08e5f4e4b
 vendor/etc/sensors/config/bmi160.json|41e840e313ac8ba74457566363abe9830c7e7ba1
@@ -1480,15 +1441,7 @@ vendor/etc/sensors/config/tcs3701.json|84815977ed238bcff112c8aae05322c32d40e794
 vendor/etc/sensors/config/wigig_sensing_0.json|9e3510d92948597d4de670c4ef9ce8d64730a1d9
 vendor/etc/sensors/sns_reg_config|2aa006ce599d8653098600f7c22e76e54fac72f0
 vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so|c19bbd328ae8cbe320a96c08a0957c286e70a856
-vendor/lib64/libsensorcal.so|a28d69be32a70277bddd540e8c2ad382d7dd1aae
-vendor/lib64/libsensorslog.so|5279ee2022daabd375685af69c5ac7c1dcfcb77d
-vendor/lib64/libsns_device_mode_stub.so|a4478e870a8ddffdd7060d977a4e53eaa8350181
-vendor/lib64/libsns_fastRPC_util.so|c392faa7c83e92ade0e51343e45edbba6ef60cdc
-vendor/lib64/libsns_low_lat_stream_stub.so|ca3094fc482dcc7397582095a6f08bc7790dd755
 vendor/lib64/libsnsapi.so|ea1bf97376114fe09cc50a4e2f20ea5daaebea2b
-vendor/lib64/libsnsdiaglog.so|510e684a33913b4f3a94068a697c83d8760d87c0
-vendor/lib64/libssc.so|92c5323689885f4f3c2e40741ffaec3da3c716ee
-vendor/lib64/libssc_default_listener.so|1653233f7454f3be9e8361ab5fde7cd45e9ac9b4
 vendor/lib64/sensors.ssc.so|b0bb87ad34a618851bd3dc8a377b2dde1e4e2fe0|7435f65e41d94ddfe060a9f3000083f48333296d
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so|28b4fa4f00eb5b5d4d46fd09e8a2b31bcfff9a76
 -odm/etc/vintf/manifest/manifest_oplusSensor.xml|2792c1ecabc3188f97e5611a71c4336fce30e4a6

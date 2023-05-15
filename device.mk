@@ -105,9 +105,6 @@ PRODUCT_ODM_PROPERTIES += \
 
 PRODUCT_SYSTEM_EXT_PROPERTIES += ro.sf.use_latest_hwc_vsync_period=0
 
-# Dolby
-$(call inherit-product, hardware/dolby/dolby.mk)
-
 # Doze
 PRODUCT_PACKAGES += \
     ParanoidDoze
@@ -134,11 +131,6 @@ PRODUCT_PROPERTY_OVERRIDES += ro.opa.device_model_id=ga-oplus-skill-os121-211011
 
 # GPS
 LOC_HIDL_VERSION = 4.0
-
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
 
 # Hotword enrollment
 PRODUCT_COPY_FILES += \
@@ -222,6 +214,8 @@ PRODUCT_PACKAGES += \
 TARGET_BOARD_PLATFORM := kona
 TARGET_COMMON_QTI_COMPONENTS := \
     all \
+    charging \
+    dsprpcd \
     keymaster \
     qseecomd
 
