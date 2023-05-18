@@ -99,13 +99,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
 
 # Display
-PRODUCT_ODM_PROPERTIES += \
-    persist.sys.sf.color_mode=0 \
-    vendor.display.enable_async_powermode=0
-
 PRODUCT_SYSTEM_EXT_PROPERTIES += ro.sf.use_latest_hwc_vsync_period=0
 
 TARGET_DISABLE_MEMTRACK := true
+TARGET_USES_FOD_ZPOS := true
 
 # Doze
 PRODUCT_PACKAGES += \
