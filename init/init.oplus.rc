@@ -43,12 +43,12 @@ on boot
     chown system system /sys/kernel/oplus_display/power_status
 
     # Double Tap Sensor
-    chown system system /proc/touchpanel/double_tap_pressed
-    chmod 0660 /proc/touchpanel/double_tap_pressed
+    chown system system /proc/touchpanel/i2c/double_tap_pressed
+    chmod 0660 /proc/touchpanel/i2c/double_tap_pressed
 
     # Single Tap Sensor
-    chown system system /proc/touchpanel/single_tap_pressed
-    chmod 0660 /proc/touchpanel/single_tap_pressed
+    chown system system /proc/touchpanel/i2c/single_tap_pressed
+    chmod 0660 /proc/touchpanel/i2c/single_tap_pressed
 
     # Sensors
     chown system system /sys/devices/platform/soc/soc:sensor_fb/adsp_notify
