@@ -137,7 +137,7 @@
     <bool name="config_dozeAlwaysOnEnabled">false</bool>
 
     <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
-    <string name="config_dozeUdfpsLongPressSensorType" translatable="false">co.aospa.sensor.udfps</string>
+    <string name="config_dozeUdfpsLongPressSensorType" translatable="false">org.lineageos.sensor.udfps</string>
 
     <!-- Flag specifying whether WFC over IMS should be available for carrier: independent of
          carrier provisioning. If false: hard disabled. If true: then depends on carrier
@@ -213,23 +213,4 @@
         <item>0:2:15</item>
     </string-array>
 
-    <!-- Type of the double tap sensor. Empty if double tap is not supported. -->
-     <string name="config_dozeDoubleTapSensorType" translatable="false">co.aospa.sensor.double_tap</string>
-
-    <!-- Type of the tap sensor. Empty if tap is not supported. -->
-    <string name="config_dozeTapSensorType" translatable="false">co.aospa.sensor.single_tap</string>
-
-    <!-- Doze: does this device support STATE_DOZE?  -->
-    <bool name="doze_display_state_supported">true</bool>
-    <!-- Doze: does this device support STATE_DOZE_SUSPEND?  -->
-    <bool name="doze_suspend_display_state_supported">true</bool>
-
-    <!-- Doze: does the single tap sensor need a proximity check? -->
-    <bool name="doze_single_tap_proximity_check">true</bool>
-
-    <!-- Doze: does the double tap sensor need a proximity check? -->
-    <bool name="doze_double_tap_proximity_check">true</bool>
-
-    <!-- Doze: does the pickup sensor need a proximity check? -->
-    <bool name="doze_pickup_event_proximity_check">true</bool>
 </resources>
