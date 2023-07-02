@@ -128,9 +128,6 @@ PRODUCT_COPY_FILES += \
 # GMS
 PRODUCT_PROPERTY_OVERRIDES += ro.opa.device_model_id=ga-oplus-skill-os121-211011
 
-# GPS
-LOC_HIDL_VERSION = 4.0
-
 # IFFA
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.sys.fod.pos.x=453 \
@@ -200,11 +197,26 @@ PRODUCT_PACKAGES += \
 # QTI
 TARGET_BOARD_PLATFORM := kona
 TARGET_COMMON_QTI_COMPONENTS := \
-    all \
+    adreno \
+    alarm \
+    audio \
+    av \
+    bt \
     charging \
+    display \
     dsprpcd \
+    gps \
+    init \
     keymaster \
-    qseecomd
+    media \
+    nfc \
+    overlay \
+    perf \
+    qseecomd \
+    telephony \
+    usb \
+    wfd \
+    wlan
 
 # Sensors
 PRODUCT_PACKAGES += \
