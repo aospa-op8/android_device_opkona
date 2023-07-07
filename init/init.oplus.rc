@@ -4,14 +4,25 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+on charger
+    start dashd
+
 on init
+    # Fingerprint
+    setprop vendor.boot.verifiedbootstate ${ro.boot.verifiedbootstate}
+    setprop vendor.boot.hw_version ${ro.boot.hw_version}
+
     # Charger
-    write /proc/fastchg_fw_update 1
-    write /proc/ui_soc_decimal 1
+    chown system system /dev/dash
+    chmod 0664 /dev/dash
 
 on fs
     # Update touchpanel firmware in case we ship newer firmware in /odm
-    write /proc/touchpanel/tp_fw_update 0
+    write /sys/devices/platform/soc/a94000.i2c/i2c-4/4-004b/tp_fw_update 0
+    write /sys/devices/platform/soc/a94000.i2c/i2c-4/4-0048/tp_fw_update 0
+
+    # Charger
+    chown system system /proc/enhance_dash
 
 on early-boot
     # Radio
@@ -34,30 +45,43 @@ on early-boot
 
 on boot
     # Display
-    chown system system /dev/oplus_display
-    chown system system /sys/kernel/oplus_display/dimlayer_bl_en
-    chown system system /sys/kernel/oplus_display/dynamic_osc_clock
-    chown system system /sys/kernel/oplus_display/hbm
-    chown system system /sys/kernel/oplus_display/notify_fppress
-    chown system system /sys/kernel/oplus_display/panel_serial_number
-    chown system system /sys/kernel/oplus_display/power_status
+    chmod 0666 /sys/class/drm/card0-DSI-1/aod
+    chown system system /sys/class/drm/card0-DSI-1/aod
+    chmod 0666 /sys/class/drm/card0-DSI-1/notify_aod
+    chown system system /sys/class/drm/card0-DSI-1/notify_aod
+    chmod 0666 /sys/class/backlight/panel0-backlight/brightness
+    chmod 0666 /sys/class/drm/card0-DSI-1/dim_alpha
+    chown system system /sys/class/drm/card0-DSI-1/dim_alpha
+    chmod 0666 /sys/class/drm/card0-DSI-1/dimlayer_bl_en
+    chown system system /sys/class/drm/card0-DSI-1/dimlayer_bl_en
+    chmod 0666 /sys/class/drm/card0-DSI-1/dither_en
+    chown system system /sys/class/drm/card0-DSI-1/dither_en
+    chmod 0666 /sys/class/drm/card0-DSI-1/notify_dim
+    chown system system /sys/class/drm/card0-DSI-1/notify_dim
+    chmod 0666 /sys/class/drm/card0-DSI-1/hbm_brightness
+    chown system system /sys/class/drm/card0-DSI-1/hbm_brightness
+    chmod 0666 /sys/class/drm/card0-DSI-1/hbm
+    chown system system /sys/class/drm/card0-DSI-1/hbm
+
+    # Fingerprint
+    chmod 0666 /sys/class/drm/card0-DSI-1/force_screenfp
+    chown system system /sys/class/drm/card0-DSI-1/force_screenfp
+    chmod 0666 /sys/class/drm/card0-DSI-1/notify_fppress
+    chown system system /sys/class/drm/card0-DSI-1/notify_fppress
+
+    chmod 0666 /dev/goodix_fp
+    chmod 0660 /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version
+    chown system system /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version
+    chmod 0666 /proc/touchpanel/touch_hold
+    chown system system /proc/touchpanel/touch_hold
+    chmod 0666 /dev/qseecom
 
     # Sensors
     chown system system /sys/devices/platform/soc/soc:sensor_fb/adsp_notify
 
-    # TOF
-    chown cameraserver cameraserver /dev/stmvl53l1_ranging
-
 on property:ro.boot.prjname=*
     # Display
     setprop ro.separate.soft ${ro.boot.prjname}
-
-on property:sys.boot_completed=1
-    # Display
-    copy /vendor/etc/OPlus_QC_LTM_Commercial_SM8250_2020_02_07.pfm /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-958228818.pfm
-    copy /vendor/etc/Oppo_QC_LTM_Commercial_SM8250_2020_01_15.pfm /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-1186717196.pfm
-    chown system system /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-1186717196.pfm
-    chown system system /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-958228818.pfm
 
 on property:vendor.post_boot.parsed=1
     # IRQ Tuning
@@ -129,8 +153,23 @@ service oplus_sensor_fb /odm/bin/oplus_sensor_fb
     class late_start
     oneshot
 
-service vl53l1_daemon_main /odm/bin/vl53l1_daemon_main
-    class late_start
-    user root
-    group root
-    socket vl53l1_daemon stream 660 root system
+service vendor.camera-provider-2-4 /vendor/bin/hw/android.hardware.camera.provider@2.4-service_64
+    override
+    interface android.hardware.camera.provider@2.4::ICameraProvider legacy/0
+    interface vendor.qti.hardware.camera.postproc@1.0::IPostProcService camerapostprocservice
+    class hal
+    user cameraserver
+    group audio camera input drmrpc oem_2907
+    ioprio rt 4
+    capabilities SYS_NICE
+    writepid /dev/cpuset/camera-daemon/tasks /dev/stune/foreground/tasks
+
+# Fix ADSP issue when booted with DASH connected.
+on property:sys.boot_completed=1
+    write /sys/module/smb5_lib/parameters/sys_boot_complete 1
+
+service dashd /vendor/bin/dashd
+    class core
+    critical
+    seclabel u:r:dashd:s0
+    group root system

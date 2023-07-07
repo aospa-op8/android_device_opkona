@@ -150,7 +150,7 @@ PRODUCT_PACKAGES += \
 # Manifests
 DEVICE_MANIFEST_FILE += \
     $(DEVICE_PATH)/manifest.xml \
-    $(DEVICE_PATH)/manifest_oplus.xml
+    $(DEVICE_PATH)/manifest_oneplus.xml
 
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/device_framework_matrix.xml
 
@@ -274,7 +274,7 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.oplus
+    vendor.qti.hardware.vibrator.service.opkona
 
 # VNDK
 PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true

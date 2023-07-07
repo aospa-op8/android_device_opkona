@@ -68,12 +68,14 @@ BOARD_KERNEL_CMDLINE := \
     reboot=panic_warm \
     service_locator.enable=1 \
     swiotlb=2048
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_RAMDISK_USE_LZ4 := true
 KERNEL_DEFCONFIG := vendor/kona-perf_defconfig
+
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
